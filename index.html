@@ -138,12 +138,24 @@
       opacity: 0.7;
       font-size: 0.9rem;
     }
+
+    .logo {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .logo img {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="brand">FreshFusion</div>
+    <div class="brand"><img src="FF_SHOPPING_ICON.jpg" alt="FreshFusion Logo" style="height:32px;vertical-align:middle;margin-right:8px;">FreshFusion</div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
   </nav>
 
@@ -189,10 +201,9 @@
 
     <a href="https://discord.gg/RVFz49PhCv" target="_blank" class="cta">Contact via Discord</a>
 
-    <div class="logo-placeholder">
-      <p><strong>Logo Placeholder</strong></p>
-      <p>Your FreshFusion logo will appear here.</p>
-    </div>
+    <div class="logo">
+  <img src="FF_SHOPPING_ICON.jpg" alt="FreshFusion Logo">
+</div>
   </section>
 
   <footer>
@@ -209,8 +220,6 @@
       document.getElementById(pageId).classList.add('active');
       document.getElementById('menu').classList.remove('open');
     }
-
-    <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -222,6 +231,5 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-
 </body>
 </html>
