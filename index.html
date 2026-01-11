@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshFusion – Shopping Game</title>
+  <meta name="description" content="FreshFusion is an upcoming shopping game experience. Play, trade, and explore a fresh way to shop in-game." />
+  <style>
+    :root {
+      --primary: #2ecc71;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --accent: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #020617, #0f172a);
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--primary);
+      color: #022c22;
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(46, 204, 113, 0.35);
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .owner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    footer {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    .logo-placeholder {
+      margin-top: 3rem;
+      padding: 2.5rem;
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 1.25rem;
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .link-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      color: var(--light);
+      transition: background 0.15s ease;
+    }
+
+    .link-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FreshFusion</h1>
+    <p>A fresh, interactive shopping game experience where creativity, trading, and fun collide. Built and managed directly by the FreshFusion owner.</p>
+    <a href="#contact" class="cta">Get in Touch</a>
+  </header>
+
+  <section>
+    <h2>What is FreshFusion?</h2>
+    <p>FreshFusion is an upcoming shopping-based game designed to offer players a unique way to browse, trade, and interact in a virtual marketplace. This project is independently owned and managed.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>🛒 Shopping Gameplay</h3>
+        <p>Explore stores, items, and experiences designed around interactive shopping mechanics.</p>
+      </div>
+      <div class="card">
+        <h3>🎮 Game-Focused</h3>
+        <p>Built as a game first — not just a shop — with progression and engagement in mind.</p>
+      </div>
+      <div class="card">
+        <h3>🔒 Owner-Managed</h3>
+        <p>All important matters go directly through the FreshFusion owner.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact the FreshFusion Owner</h2>
+
+    <div class="owner">
+      <p><strong>Get in touch with the FreshFusion Owner today</strong> by using one of the approved contact methods below. This project is privately managed, and only selected enquiries will be handled.</p>
+
+      <a href="#" class="cta">Contact via Discord</a>
+
+      <div class="links">
+        <a href="#" class="link-btn">Discord Server</a>
+        <a href="#" class="link-btn">Owner Discord</a>
+        <a href="#" class="link-btn">Email (Coming Soon)</a>
+      </div>
+    </div>
+
+    <div class="logo-placeholder">
+      <p><strong>Logo Placeholder</strong></p>
+      <p>Your FreshFusion logo will go here.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 FreshFusion. All rights reserved.</p>
+    <p>This website is owned and operated by the FreshFusion owner.</p>
+  </footer>
+
+</body>
+</html>
