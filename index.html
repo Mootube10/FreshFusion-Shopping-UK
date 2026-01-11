@@ -8,7 +8,7 @@
   <style>
     :root {
       --primary: #2ecc71;
-      --dark: #0f172a;
+      --dark: #020617;
       --light: #f8fafc;
       --accent: #22c55e;
     }
@@ -23,49 +23,93 @@
     body {
       background: linear-gradient(180deg, #020617, #0f172a);
       color: var(--light);
-      line-height: 1.6;
+      min-height: 100vh;
     }
 
-    header {
-      padding: 4rem 1.5rem;
-      text-align: center;
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    header h1 {
-      font-size: 3rem;
+    .brand {
       font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .menu-btn {
+      font-size: 1.6rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 260px;
+      height: 100%;
+      background: #020617;
+      padding: 2rem;
+      transition: right 0.3s ease;
+      z-index: 10;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .menu.open {
+      right: 0;
+    }
+
+    .menu a {
+      display: block;
+      color: var(--light);
+      text-decoration: none;
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    /* PAGES */
+    .page {
+      display: none;
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.8rem;
       margin-bottom: 1rem;
     }
 
-    header p {
-      max-width: 720px;
-      margin: 0 auto 2rem;
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    p {
       opacity: 0.9;
+      margin-bottom: 1rem;
+      max-width: 720px;
     }
 
     .cta {
       display: inline-block;
       background: var(--primary);
       color: #022c22;
-      padding: 0.9rem 1.6rem;
+      padding: 0.8rem 1.6rem;
       border-radius: 999px;
       font-weight: 600;
       text-decoration: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      margin-top: 1rem;
     }
 
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(46, 204, 113, 0.35);
-    }
-
-    section {
-      padding: 4rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .card-grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
@@ -73,118 +117,99 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 1.25rem;
-      padding: 1.75rem;
-      backdrop-filter: blur(8px);
-    }
-
-    .card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .owner {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      background: rgba(34, 197, 94, 0.08);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      border-radius: 1.5rem;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    footer {
-      padding: 3rem 1.5rem;
-      text-align: center;
-      opacity: 0.8;
-      font-size: 0.9rem;
+      padding: 1.6rem;
     }
 
     .logo-placeholder {
       margin-top: 3rem;
       padding: 2.5rem;
-      border: 2px dashed rgba(255, 255, 255, 0.2);
+      border: 2px dashed rgba(255,255,255,0.2);
       border-radius: 1.25rem;
       text-align: center;
       opacity: 0.7;
     }
 
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .link-btn {
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      text-decoration: none;
-      color: var(--light);
-      transition: background 0.15s ease;
-    }
-
-    .link-btn:hover {
-      background: rgba(255, 255, 255, 0.08);
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      opacity: 0.7;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <nav>
+    <div class="brand">FreshFusion</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </nav>
+
+  <div class="menu" id="menu">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('contact')">Contact</a>
+  </div>
+
+  <!-- HOME -->
+  <section class="page active" id="home">
     <h1>FreshFusion</h1>
-    <p>A fresh, interactive shopping game experience where creativity, trading, and fun collide. Built and managed directly by the FreshFusion owner.</p>
-    <a href="#contact" class="cta">Get in Touch</a>
-  </header>
+    <p>A fresh, interactive shopping game experience. Designed, owned, and managed independently.</p>
+    <a class="cta" onclick="showPage('contact')">Get in Touch</a>
 
-  <section>
-    <h2>What is FreshFusion?</h2>
-    <p>FreshFusion is an upcoming shopping-based game designed to offer players a unique way to browse, trade, and interact in a virtual marketplace. This project is independently owned and managed.</p>
-
-    <div class="card-grid">
+    <div class="cards">
       <div class="card">
         <h3>🛒 Shopping Gameplay</h3>
-        <p>Explore stores, items, and experiences designed around interactive shopping mechanics.</p>
+        <p>Interactive stores, items, and virtual shopping mechanics.</p>
       </div>
       <div class="card">
-        <h3>🎮 Game-Focused</h3>
-        <p>Built as a game first — not just a shop — with progression and engagement in mind.</p>
+        <h3>🎮 Game First</h3>
+        <p>Built as a game — not just a storefront.</p>
       </div>
       <div class="card">
-        <h3>🔒 Owner-Managed</h3>
-        <p>All important matters go directly through the FreshFusion owner.</p>
+        <h3>🔒 Owner Managed</h3>
+        <p>All important enquiries go directly to the owner.</p>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <!-- ABOUT -->
+  <section class="page" id="about">
+    <h2>About FreshFusion</h2>
+    <p>FreshFusion is a shopping-based game project focused on creativity, progression, and player interaction. This project is privately owned and carefully managed.</p>
+    <p>Only approved contact methods are available, ensuring quality communication and security.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page" id="contact">
     <h2>Contact the FreshFusion Owner</h2>
+    <p><strong>Get in touch with the FreshFusion Owner today</strong> using the methods below. Not all enquiries will receive a response.</p>
 
-    <div class="owner">
-      <p><strong>Get in touch with the FreshFusion Owner today</strong> by using one of the approved contact methods below. This project is privately managed, and only selected enquiries will be handled.</p>
-
-      <a href="#" class="cta">Contact via Discord</a>
-
-      <div class="links">
-        <a href="#" class="link-btn">Discord Server</a>
-        <a href="#" class="link-btn">Owner Discord</a>
-        <a href="#" class="link-btn">Email (Coming Soon)</a>
-      </div>
-    </div>
+    <a href="https://discord.gg/RVFz49PhCv" target="_blank" class="cta">Contact via Discord</a>
 
     <div class="logo-placeholder">
       <p><strong>Logo Placeholder</strong></p>
-      <p>Your FreshFusion logo will go here.</p>
+      <p>Your FreshFusion logo will appear here.</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 FreshFusion. All rights reserved.</p>
-    <p>This website is owned and operated by the FreshFusion owner.</p>
+    © 2026 FreshFusion. All rights reserved.
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('open');
+    }
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      document.getElementById('menu').classList.remove('open');
+    }
+  </script>
 
 </body>
 </html>
