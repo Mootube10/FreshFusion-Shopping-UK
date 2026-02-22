@@ -10,7 +10,6 @@
       --primary: #2ecc71;
       --dark: #020617;
       --light: #f8fafc;
-      --accent: #22c55e;
     }
 
     * {
@@ -26,18 +25,13 @@
       min-height: 100vh;
     }
 
-    /* NAV */
     nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .brand {
-      font-weight: 800;
-      font-size: 1.2rem;
+      justify-content: flex-start;
+      gap: 1rem;
     }
 
     .menu-btn {
@@ -71,7 +65,6 @@
       font-size: 1.05rem;
     }
 
-    /* PAGES */
     .page {
       display: none;
       padding: 4rem 1.5rem;
@@ -83,20 +76,9 @@
       display: block;
     }
 
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      margin-bottom: 1rem;
-    }
-
-    p {
-      opacity: 0.9;
-      margin-bottom: 1rem;
-      max-width: 720px;
-    }
+    h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+    h2 { margin-bottom: 1rem; }
+    p { opacity: 0.9; margin-bottom: 1rem; max-width: 720px; }
 
     .cta {
       display: inline-block;
@@ -123,300 +105,107 @@
       padding: 1.6rem;
     }
 
-    .logo-placeholder {
-      margin-top: 3rem;
-      padding: 2.5rem;
-      border: 2px dashed rgba(255,255,255,0.2);
-      border-radius: 1.25rem;
-      text-align: center;
-      opacity: 0.7;
-    }
-
     footer {
       text-align: center;
       padding: 2rem 1.5rem;
       opacity: 0.7;
       font-size: 0.9rem;
     }
-
-    
-
-    
   </style>
 </head>
 <body>
 
-<div id="loginGate" style="
-position:fixed;
-inset:0;
-background:#0b0f19;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
-flex-direction:column;
-font-family:system-ui, sans-serif;
-">
+<nav>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</nav>
 
-  <h1 style="color:white;font-size:2.2rem;margin-bottom:0.5rem;">
-    Welcome to FreshFusion
-  </h1>
-  <p style="color:#9ca3af;margin-bottom:2rem;">
-    Sign in to continue to your workspace
-  </p>
-
-  <div style="
-    background:#111827;
-    padding:2.5rem;
-    border-radius:1rem;
-    width:420px;
-    max-width:90%;
-    text-align:center;
-    border:1px solid rgba(255,255,255,0.08);
-  ">
-
-    <button id="gateLoginBtn" style="
-      width:100%;
-      background:#ffffff;
-      color:#111827;
-      border:none;
-      padding:0.9rem;
-      border-radius:0.6rem;
-      font-weight:600;
-      font-size:1rem;
-      cursor:pointer;
-      margin-bottom:1.5rem;
-    ">
-      Authorize with Discord
-    </button>
-
-    <p style="color:#9ca3af;font-size:0.9rem;">
-      Secure authentication<br><br>
-      We use Discord OAuth for secure authentication.<br>
-      Your credentials are never stored on our servers.
-    </p>
-  </div>
-
-  <p style="color:#6b7280;margin-top:2rem;font-size:0.85rem;">
-    By continuing, you agree to our Terms of Service and Privacy Policy.
-  </p>
-</div>
-
-
-  <nav>
-    <div class="brand">FreshFusion</div>
-    
-    <div id="authArea" style="display:flex;align-items:center;gap:10px;">
-      <button id="loginBtn" class="cta" style="padding:0.4rem 1rem;">Login with Discord</button>
-    </div>
-
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  </nav>
-
-  <div class="menu" id="menu">
+<div class="menu" id="menu">
   <a href="javascript:void(0)" onclick="showPage('home')">Home</a>
   <a href="javascript:void(0)" onclick="showPage('about')">About</a>
   <a href="javascript:void(0)" onclick="showPage('contact')">Contact</a>
   <a href="javascript:void(0)" onclick="showPage('suggestions')">Suggestions</a>
 </div>
 
-  <!-- HOME -->
-  <section class="page active" id="home">
-    <h1>FreshFusion</h1>
-    <p>A fresh, interactive shopping game experience. Designed, owned, and managed independently.</p>
-    <a href="javascript:void(0)" class="cta" onclick="showPage('contact')">Get in Touch</a>
+<!-- LOGIN GATE -->
+<div id="loginGate" style="
+position:fixed; inset:0; background:#0b0f19; display:flex;
+align-items:center; justify-content:center; z-index:9999; flex-direction:column;
+font-family:system-ui, sans-serif;
+">
+  <h1 style="color:white;font-size:2.2rem;margin-bottom:0.5rem;">Welcome to FreshFusion</h1>
+  <p style="color:#9ca3af;margin-bottom:2rem;">Sign in to continue to your workspace</p>
+  <div style="background:#111827;padding:2.5rem;border-radius:1rem;width:420px;max-width:90%;text-align:center;border:1px solid rgba(255,255,255,0.08);">
+    <button id="gateLoginBtn" style="width:100%;background:#ffffff;color:#111827;border:none;padding:0.9rem;border-radius:0.6rem;font-weight:600;font-size:1rem;cursor:pointer;margin-bottom:1.5rem;">
+      Authorize with Discord
+    </button>
+    <p style="color:#9ca3af;font-size:0.9rem;">
+      Secure authentication<br><br>
+      We use Discord OAuth for secure authentication.<br>
+      Your credentials are never stored on our servers.
+    </p>
+  </div>
+  <p style="color:#6b7280;margin-top:2rem;font-size:0.85rem;">
+    By continuing, you agree to our Terms of Service and Privacy Policy.
+  </p>
+</div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>🛒 Shopping Gameplay</h3>
-        <p>Interactive stores, items, and virtual shopping mechanics.</p>
-      </div>      <div class="card">
-        <h3>🔒 Owner Managed</h3>
-        <p>All important enquiries go directly to the owner.</p>
-      </div>
+<!-- HOME -->
+<section class="page active" id="home">
+  <h1>FreshFusion</h1>
+  <p>A fresh, interactive shopping game experience. Designed, owned, and managed independently.</p>
+  <a href="javascript:void(0)" class="cta" onclick="showPage('contact')">Get in Touch</a>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🛒 Shopping Gameplay</h3>
+      <p>Interactive stores, items, and virtual shopping mechanics.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section class="page" id="about">
-    <h2>About FreshFusion</h2>
-    <p>FreshFusion is a shopping-based game project focused on creativity, progression, and player interaction. This project is privately owned and carefully managed.</p>
-    <p>Only approved contact methods are available, ensuring quality communication and security.</p>
-  </section>
+<!-- ABOUT -->
+<section class="page" id="about">
+  <h2>About FreshFusion</h2>
+  <p>FreshFusion is a shopping-based game project focused on creativity, progression, and player interaction. This project is privately owned and carefully managed.</p>
+  <p>Only approved contact methods are available, ensuring quality communication and security.</p>
+</section>
 
-  <!-- CONTACT -->
-  <section class="page" id="contact">
+<!-- CONTACT -->
+<section class="page" id="contact">
   <h2>Contact the FreshFusion Owner</h2>
   <p><strong>Get in touch with the FreshFusion Owner today</strong> using the methods below. Not all enquiries will receive a response.</p>
   <a href="https://discord.gg/RVFz49PhCv" target="_blank" class="cta">Contact via Discord</a>
 </section>
 
+<!-- SUGGESTIONS -->
 <section class="page" id="suggestions">
   <h2>Send a Suggestion</h2>
   <p>Have an idea for FreshFusion? Send it below. Suggestions go directly to the development team.</p>
-
   <form id="suggestionForm">
     <input type="text" id="suggestionName" placeholder="Your name (optional)" style="width:100%;padding:0.8rem;margin-bottom:1rem;border-radius:0.75rem;border:none;" />
     <textarea id="suggestionText" placeholder="Type your suggestion here..." required style="width:100%;height:140px;padding:0.8rem;border-radius:0.75rem;border:none;"></textarea>
     <button type="submit" class="cta" style="margin-top:1rem;">Submit Suggestion</button>
   </form>
-
   <p id="suggestionStatus" style="margin-top:1rem;"></p>
 </section>
 
-  <footer>
-    © 2026 FreshFusion. All rights reserved.
-  </footer>
+<footer>
+  © 2026 FreshFusion. All rights reserved.
+</footer>
 
-<!-- SUGGESTIONS → DISCORD WEBHOOK (STEP 2 ADDED) -->
+<!-- SCRIPTS -->
 <script>
-  // IMPORTANT: Replace this with your real Discord webhook URL
-  const webhookURL = "https://discord.com/api/webhooks/1463215819256500371/sGxeD4xABqAtTxEtdREm-jBe87bxDqI0DhqlN4aKhbKml1dUczoh97esdmQaPdktxE92";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("suggestionForm");
-    if (!form) return;
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("suggestionName").value || "Anonymous";
-      const suggestion = document.getElementById("suggestionText").value.trim();
-      const status = document.getElementById("suggestionStatus");
-
-      if (!suggestion) {
-        status.textContent = "❌ Please enter a suggestion.";
-        return;
-      }
-
-      status.textContent = "Sending suggestion...";
-
-      try {
-        await fetch(webhookURL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            username: "FreshFusion Suggestions",
-            embeds: [
-              {
-                title: "💡 New Suggestion",
-                description: suggestion,
-                fields: [
-                  { name: "From", value: name }
-                ],
-                color: 3066993
-              }
-            ]
-          })
-        });
-
-        status.textContent = "✅ Suggestion sent successfully!";
-        form.reset();
-      } catch (error) {
-        status.textContent = "❌ Failed to send suggestion.";
-      }
-    });
-  });
-</script>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('open');
-    }
-
-    function showPage(pageId) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(pageId).classList.add('active');
-      document.getElementById('menu').classList.remove('open');
-    }
-  </script>
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6963aec6dcdfaf197f805f16/1jemm5e2r';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-  
-
-<!-- DISCORD LOGIN SYSTEM -->
-<script>
-const CLIENT_ID = "1463222351863873733";
-const REDIRECT_URI = "https://mootube10.github.io/FreshFusion-Shopping-UK/";
-const AUTH_URL =
-  `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}` +
-  `&response_type=token` +
-  `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
-  `&scope=identify`;
-
-document.addEventListener("DOMContentLoaded", () => {
-  const authArea = document.getElementById("authArea");
-  const loginBtn = document.getElementById("loginBtn");
-
-  loginBtn?.addEventListener("click", () => {
-    window.location.href = AUTH_URL;
-  });
-
-  function getTokenFromHash() {
-    if (window.location.hash) {
-      const params = new URLSearchParams(window.location.hash.substring(1));
-      return params.get("access_token");
-    }
-    return null;
+  // Toggle menu
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('open');
+  }
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    document.getElementById('menu').classList.remove('open');
   }
 
-  async function fetchUser(token) {
-    const res = await fetch("https://discord.com/api/users/@me", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-    return res.json();
-  }
-
-  async function handleAuth() {
-    let token = localStorage.getItem("discord_token");
-    const hashToken = getTokenFromHash();
-
-    if (hashToken) {
-      token = hashToken;
-      localStorage.setItem("discord_token", token);
-      window.history.replaceState({}, document.title, REDIRECT_URI);
-    }
-
-    if (!token) return;
-
-    try {
-      const user = await fetchUser(token);
-
-      authArea.innerHTML = `
-        <img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png"
-             style="width:36px;height:36px;border-radius:50%;">
-        <span style="margin-left:8px;">${user.username}</span>
-        <button onclick="logout()" style="margin-left:12px;">Logout</button>
-      `;
-    } catch {
-      logout();
-    }
-  }
-
-  window.logout = function () {
-    localStorage.removeItem("discord_token");
-    location.reload();
-  };
-
-  handleAuth();
-});
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
+  // Discord OAuth login
   const CLIENT_ID = "1463222351863873733";
   const REDIRECT_URI = "https://mootube10.github.io/FreshFusion-Shopping-UK/";
   const AUTH_URL =
@@ -425,71 +214,80 @@ document.addEventListener("DOMContentLoaded", () => {
     `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
     `&scope=identify`;
 
-  const gateBtn = document.getElementById("gateLoginBtn");
-  const loginGate = document.getElementById("loginGate");
+  document.addEventListener("DOMContentLoaded", () => {
+    const gateBtn = document.getElementById("gateLoginBtn");
+    const loginGate = document.getElementById("loginGate");
+    const nav = document.querySelector("nav");
 
-  gateBtn?.addEventListener("click", () => {
-    window.location.href = AUTH_URL;
+    gateBtn?.addEventListener("click", () => { window.location.href = AUTH_URL; });
+
+    function getTokenFromHash() {
+      if (window.location.hash) {
+        const params = new URLSearchParams(window.location.hash.substring(1));
+        return params.get("access_token");
+      }
+      return null;
+    }
+
+    async function fetchUser(token) {
+      const res = await fetch("https://discord.com/api/users/@me", {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      return res.json();
+    }
+
+    async function handleAuth() {
+      let token = localStorage.getItem("discord_token");
+      const hashToken = getTokenFromHash();
+
+      if (hashToken) {
+        token = hashToken;
+        localStorage.setItem("discord_token", token);
+        window.history.replaceState({}, document.title, REDIRECT_URI);
+      }
+      if (!token) return;
+
+      try {
+        const user = await fetchUser(token);
+        loginGate.style.display = "none";
+
+        const profile = document.createElement("div");
+        profile.style.display = "flex";
+        profile.style.alignItems = "center";
+        profile.innerHTML = `<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png" style="width:32px;height:32px;border-radius:50%;">`;
+        nav.insertBefore(profile, nav.firstChild);
+      } catch {
+        localStorage.removeItem("discord_token");
+      }
+    }
+
+    handleAuth();
   });
 
-  function getTokenFromHash() {
-    if (window.location.hash) {
-      const params = new URLSearchParams(window.location.hash.substring(1));
-      return params.get("access_token");
-    }
-    return null;
-  }
-
-  async function fetchUser(token) {
-    const res = await fetch("https://discord.com/api/users/@me", {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    return res.json();
-  }
-
-  async function handleAuth() {
-    let token = localStorage.getItem("discord_token");
-    const hashToken = getTokenFromHash();
-
-    if (hashToken) {
-      token = hashToken;
-      localStorage.setItem("discord_token", token);
-      window.history.replaceState({}, document.title, REDIRECT_URI);
-    }
-
-    if (!token) return;
-
+  // Suggestions webhook
+  const webhookURL = "https://discord.com/api/webhooks/1463215819256500371/sGxeD4xABqAtTxEtdREm-jBe87bxDqI0DhqlN4aKhbKml1dUczoh97esdmQaPdktxE92";
+  document.getElementById("suggestionForm")?.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const name = document.getElementById("suggestionName").value || "Anonymous";
+    const suggestion = document.getElementById("suggestionText").value.trim();
+    const status = document.getElementById("suggestionStatus");
+    if (!suggestion) { status.textContent = "❌ Please enter a suggestion."; return; }
+    status.textContent = "Sending suggestion...";
     try {
-      const user = await fetchUser(token);
-
-      // Hide login gate
-      loginGate.style.display = "none";
-
-      // Show user top-left
-      const nav = document.querySelector("nav");
-      const profile = document.createElement("div");
-      profile.style.display = "flex";
-      profile.style.alignItems = "center";
-      profile.style.gap = "8px";
-
-      profile.innerHTML = `
-        <img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png"
-             style="width:32px;height:32px;border-radius:50%;">
-        
-      `;
-
-      
-      const menuBtn = nav.querySelector(".menu-btn");
-      nav.insertBefore(profile, menuBtn);
-    
-
+      await fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: "FreshFusion Suggestions",
+          embeds: [{ title: "💡 New Suggestion", description: suggestion, fields: [{ name: "From", value: name }], color: 3066993 }]
+        })
+      });
+      status.textContent = "✅ Suggestion sent successfully!";
+      this.reset();
     } catch {
-      localStorage.removeItem("discord_token");
+      status.textContent = "❌ Failed to send suggestion.";
     }
-  }
-
-  handleAuth();
-});
+  });
 </script>
 
 </body>
