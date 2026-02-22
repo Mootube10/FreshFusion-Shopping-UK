@@ -53,10 +53,7 @@
       border-left: 1px solid rgba(255,255,255,0.1);
     }
 
-    .menu.open {
-      right: 0;
-    }
-
+    .menu.open { right: 0; }
     .menu a {
       display: block;
       color: var(--light);
@@ -65,16 +62,8 @@
       font-size: 1.05rem;
     }
 
-    .page {
-      display: none;
-      padding: 4rem 1.5rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .page.active {
-      display: block;
-    }
+    .page { display: none; padding: 4rem 1.5rem; max-width: 1100px; margin: auto; }
+    .page.active { display: block; }
 
     h1 { font-size: 2.8rem; margin-bottom: 1rem; }
     h2 { margin-bottom: 1rem; }
@@ -89,6 +78,7 @@
       font-weight: 600;
       text-decoration: none;
       margin-top: 1rem;
+      cursor: pointer;
     }
 
     .cards {
@@ -105,12 +95,7 @@
       padding: 1.6rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      opacity: 0.7;
-      font-size: 0.9rem;
-    }
+    footer { text-align: center; padding: 2rem 1.5rem; opacity: 0.7; font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -195,7 +180,7 @@ font-family:system-ui, sans-serif;
 
 <!-- SCRIPTS -->
 <script>
-  // Toggle menu
+  // Menu toggle
   function toggleMenu() {
     document.getElementById('menu').classList.toggle('open');
   }
@@ -205,7 +190,7 @@ font-family:system-ui, sans-serif;
     document.getElementById('menu').classList.remove('open');
   }
 
-  // Discord OAuth login
+  // Discord OAuth login with clickable avatar logout
   const CLIENT_ID = "1463222351863873733";
   const REDIRECT_URI = "https://mootube10.github.io/FreshFusion-Shopping-UK/";
   const AUTH_URL =
@@ -251,10 +236,18 @@ font-family:system-ui, sans-serif;
         const user = await fetchUser(token);
         loginGate.style.display = "none";
 
-        const profile = document.createElement("div");
-        profile.style.display = "flex";
-        profile.style.alignItems = "center";
-        profile.innerHTML = `<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png" style="width:32px;height:32px;border-radius:50%;">`;
+        const profile = document.createElement("img");
+        profile.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+        profile.style.width = "32px";
+        profile.style.height = "32px";
+        profile.style.borderRadius = "50%";
+        profile.style.cursor = "pointer";
+        profile.title = "Click to logout";
+        profile.addEventListener("click", () => {
+          localStorage.removeItem("discord_token");
+          location.reload();
+        });
+
         nav.insertBefore(profile, nav.firstChild);
       } catch {
         localStorage.removeItem("discord_token");
@@ -288,6 +281,18 @@ font-family:system-ui, sans-serif;
       status.textContent = "❌ Failed to send suggestion.";
     }
   });
+  
+  </script>
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6963aec6dcdfaf197f805f16/1jemm5e2r';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
 
 </body>
