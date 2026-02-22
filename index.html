@@ -160,7 +160,7 @@
     handleAuth();
   });
 
-  const suggestionWebhookURL = "YOUR_SUGGESTIONS_WEBHOOK_URL";
+  const suggestionWebhookURL = "https://discord.com/api/webhooks/1463215819256500371/sGxeD4xABqAtTxEtdREm-jBe87bxDqI0DhqlN4aKhbKml1dUczoh97esdmQaPdktxE92";
   document.getElementById("suggestionForm")?.addEventListener("submit", async function(e){
     e.preventDefault();
     const name = document.getElementById("suggestionName").value || "Anonymous";
@@ -173,7 +173,7 @@
     } catch{ status.textContent="❌ Failed to send suggestion."; }
   });
 
-  const bugWebhookURL = "YOUR_BUG_WEBHOOK_URL";
+  const bugWebhookURL = "https://discord.com/api/webhooks/1474995834696499301/9VRYDRRsyM5A1Zai2hPchJ9G-s3k-JBNjtOhs2GTst-RG9zeVZ0cYa75mRnsXJN5K_6V";
   document.getElementById("bugForm")?.addEventListener("submit", async function(e){
     e.preventDefault();
     const name = document.getElementById("bugName").value || "Anonymous";
